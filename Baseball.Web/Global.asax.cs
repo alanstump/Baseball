@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IocContainer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,12 +17,19 @@ namespace Baseball.Web
     {
         protected void Application_Start()
         {
+            ConfigureIoc();
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        void ConfigureIoc()
+        {
+            Ioc.AddSingletonDefinition<Baseball.Web.Controllers.B>();
         }
     }
 }

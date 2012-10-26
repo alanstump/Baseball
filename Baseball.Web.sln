@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baseball.Web", "Baseball.We
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Baseball.Web.Tests", "Baseball.Web.Tests\Baseball.Web.Tests.csproj", "{FFBBFD25-602F-4EA9-B017-C37492770FDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IocContainer", "..\IocContainer\IocContainer\IocContainer.csproj", "{745E6967-DB70-4958-B044-493861648FF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{FFBBFD25-602F-4EA9-B017-C37492770FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFBBFD25-602F-4EA9-B017-C37492770FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFBBFD25-602F-4EA9-B017-C37492770FDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{745E6967-DB70-4958-B044-493861648FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{745E6967-DB70-4958-B044-493861648FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{745E6967-DB70-4958-B044-493861648FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{745E6967-DB70-4958-B044-493861648FF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

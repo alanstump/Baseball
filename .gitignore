@@ -28,6 +28,7 @@ bin/
 obj/
 TestResults/
 packages/
+.nuget/
 
 # User-specific files
 *.suo
