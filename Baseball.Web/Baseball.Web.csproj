@@ -122,7 +122,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BaseballWebIocConfigurer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RosterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +215,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Roster\Details.cshtml" />
+    <Content Include="Views\Roster\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -225,6 +229,14 @@
     <ProjectReference Include="..\..\IocContainer\IocContainer\IocContainer.csproj">
       <Project>{745e6967-db70-4958-b044-493861648ff3}</Project>
       <Name>IocContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Baseball.Data\Baseball.Data.csproj">
+      <Project>{aa53bb5e-1372-47ce-923b-0d49d54c522f}</Project>
+      <Name>Baseball.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Baseball.Lib\Baseball.Lib.csproj">
+      <Project>{b33ff8f0-0605-4790-9d5e-1620dcb1f663}</Project>
+      <Name>Baseball.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,12 +1,9 @@
-﻿using IocContainer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Baseball.Data;
+using Baseball.Lib;
 
 namespace Baseball.Web
 {
@@ -27,9 +24,11 @@ namespace Baseball.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 
-        void ConfigureIoc()
+        static void ConfigureIoc()
         {
-            Ioc.AddSingletonDefinition<Baseball.Web.Controllers.B>();
+            BaseballWebIocConfigurer.Configure();
+            BaseballLibIocConfigurer.Configure();
+            BaseballDataIocConfigurer.Configure();
         }
     }
 }
