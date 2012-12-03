@@ -1,0 +1,3 @@
+[submodule "IocContainer"]
+	path = IocContainer
+	url = git://github.com/alanstump/IocContainer.git

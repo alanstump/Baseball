@@ -46,8 +46,8 @@
     <Compile Include="Repositories\IPlayersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IocContainer\IocContainer\IocContainer.csproj">
-      <Project>{745e6967-db70-4958-b044-493861648ff3}</Project>
+    <ProjectReference Include="..\IocContainer\IocContainer\IocContainer.csproj">
+      <Project>{745E6967-DB70-4958-B044-493861648FF3}</Project>
       <Name>IocContainer</Name>
     </ProjectReference>
   </ItemGroup>

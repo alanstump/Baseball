@@ -44,13 +44,13 @@
     <Compile Include="Repositories\PlayersRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IocContainer\IocContainer\IocContainer.csproj">
-      <Project>{745e6967-db70-4958-b044-493861648ff3}</Project>
-      <Name>IocContainer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Baseball.Lib\Baseball.Lib.csproj">
       <Project>{b33ff8f0-0605-4790-9d5e-1620dcb1f663}</Project>
       <Name>Baseball.Lib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IocContainer\IocContainer\IocContainer.csproj">
+      <Project>{745E6967-DB70-4958-B044-493861648FF3}</Project>
+      <Name>IocContainer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

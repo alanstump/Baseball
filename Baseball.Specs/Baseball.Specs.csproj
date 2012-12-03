@@ -11,6 +11,8 @@
     <AssemblyName>Baseball.Specs</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,10 +76,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\IocContainer\IocContainer\IocContainer.csproj">
-      <Project>{745E6967-DB70-4958-B044-493861648FF3}</Project>
-      <Name>IocContainer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Baseball.Lib\Baseball.Lib.csproj">
       <Project>{B33FF8F0-0605-4790-9D5E-1620DCB1F663}</Project>
       <Name>Baseball.Lib</Name>
@@ -86,11 +84,16 @@
       <Project>{cbe8a720-37a9-4faa-aeff-6f26db0ed76d}</Project>
       <Name>Baseball.Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IocContainer\IocContainer\IocContainer.csproj">
+      <Project>{745E6967-DB70-4958-B044-493861648FF3}</Project>
+      <Name>IocContainer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Team\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
