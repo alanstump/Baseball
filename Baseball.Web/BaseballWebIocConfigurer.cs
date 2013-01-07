@@ -9,6 +9,7 @@ namespace Baseball.Web
         {
             Ioc.AddPrototypeDefinition<HomeController>();
             Ioc.AddPrototypeDefinition<RosterController>();
+            Ioc.AddPrototypeDefinition<TeamController>();
         }
     }
 }

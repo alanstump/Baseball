@@ -16,34 +16,22 @@ namespace Baseball.Specs.Roster
     public class RosterSteps
     {
         IEnumerable<Player> _returnedPlayers;
-        readonly PlayersRepositoryStub _playersRepository;
         HttpNotFoundResult _httpNotFoundResult;
         Player _player;
 
         public RosterSteps()
         {
             BaseballSpecsIocConfigurer.Configure();
-            _playersRepository = Ioc.Get<IPlayersRepository>() as PlayersRepositoryStub;
         }
         
         [Before]
         public void Setup()
         {
-            _playersRepository.Players.Clear();
+            var playersRepository = Ioc.Get<IPlayersRepository>() as PlayersRepositoryStub;
+            playersRepository.Players.Clear();
+
             _player = null;
             _httpNotFoundResult = null;
-        }
-
-        [Given(@"there are no players on the team")]
-        public void GivenThereAreNoPlayersOnTheTeam()
-        {
-        }
-
-        [Given(@"the team has the following players:")]
-        public void GivenTheTeamHasTheFollowingPlayers(Table table)
-        {
-            var players = PlayersHelper.CreateFrom(table);
-            _playersRepository.Players.AddRange(players);
         }
 
         [When(@"I get all players")]

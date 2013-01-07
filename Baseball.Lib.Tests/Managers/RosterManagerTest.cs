@@ -13,7 +13,7 @@ namespace Baseball.Lib.Tests.Managers
         Mock<IPlayersRepository> _playersRepository;
         RosterManager _playersManager;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             _playersRepository = new Mock<IPlayersRepository>();

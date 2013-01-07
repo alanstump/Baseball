@@ -23,7 +23,7 @@ namespace Baseball.Data.Repositories
             };
         }
 
-        public IEnumerable<Player> GetAll()
+        public IList<Player> GetAll()
         {
             return Players;
         }

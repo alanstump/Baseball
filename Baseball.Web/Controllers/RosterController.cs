@@ -27,6 +27,5 @@ namespace Baseball.Web.Controllers
 
             return View(player);
         }
-
     }
 }

@@ -13,6 +13,8 @@ namespace Baseball.Specs
             BaseballWebIocConfigurer.Configure();
             BaseballLibIocConfigurer.Configure();
             Ioc.AddSingletonDefinition<IPlayersRepository, PlayersRepositoryStub>();
+            Ioc.AddSingletonDefinition<IPlayerYearStatsRepository, PlayerYearStatsRepositoryStub>();
+            Ioc.AddSingletonDefinition<ITeamRepository, TeamRepositoryStub>();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Baseball.Specs.Repositories
             Players = new List<Player>();
         }
 
-        public IEnumerable<Player> GetAll()
+        public IList<Player> GetAll()
         {
             return Players;
         }

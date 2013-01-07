@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Managers\RosterManagerTest.cs" />
+    <Compile Include="Managers\TeamManagerTest.cs" />
+    <Compile Include="Models\TeamStatsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

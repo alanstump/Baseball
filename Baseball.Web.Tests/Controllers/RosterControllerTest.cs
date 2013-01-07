@@ -3,11 +3,7 @@ using Baseball.Lib.Models;
 using Baseball.Web.Controllers;
 using Moq;
 using NUnit.Framework;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Baseball.Web.Tests.Controllers
@@ -18,7 +14,7 @@ namespace Baseball.Web.Tests.Controllers
         RosterController _rosterController;
         Mock<RosterManager> _rosterManager;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
             _rosterManager = new Mock<RosterManager>(null);
@@ -26,7 +22,7 @@ namespace Baseball.Web.Tests.Controllers
         }
 
         [Test]
-        public void IndexGetAll_CallsPlayerManager()
+        public void Index_CallsPlayerManager()
         {
             var players = new List<Player> { new Player() };
             _rosterManager.Setup(x => x.GetAllPlayers()).Returns(players);
@@ -41,7 +37,7 @@ namespace Baseball.Web.Tests.Controllers
         }
         
         [Test]
-        public void IndexGetById_CallsPlayerManager()
+        public void Details_CallsPlayerManager()
         {
             var player = new Player {Id = 4};
             _rosterManager.Setup(x => x.GetPlayerById(4)).Returns(player);
@@ -56,7 +52,7 @@ namespace Baseball.Web.Tests.Controllers
         }
         
         [Test]
-        public void IndexGetById_PlayerDoesNotExist_ReturnsHttpNotFound()
+        public void Details_PlayerDoesNotExist_ReturnsHttpNotFound()
         {
             _rosterManager.Setup(x => x.GetPlayerById(4)).Returns((Player)null);
 

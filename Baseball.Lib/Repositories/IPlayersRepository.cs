@@ -5,7 +5,7 @@ namespace Baseball.Lib.Repositories
 {
     public interface IPlayersRepository
     {
-        IEnumerable<Player> GetAll();
+        IList<Player> GetAll();
         Player GetById(int id);
     }
 }

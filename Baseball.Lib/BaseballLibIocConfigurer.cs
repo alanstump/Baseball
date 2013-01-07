@@ -8,6 +8,7 @@ namespace Baseball.Lib
         public static void Configure()
         {
             Ioc.AddSingletonDefinition<RosterManager>();
+            Ioc.AddSingletonDefinition<TeamManager>();
         }
     }
 }
