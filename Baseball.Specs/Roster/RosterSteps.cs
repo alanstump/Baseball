@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Baseball.Lib.Models;
 using Baseball.Lib.Repositories;
+using Baseball.Specs.Helpers;
 using Baseball.Specs.Repositories;
 using Baseball.Web.Controllers;
 using IocContainer;
@@ -68,14 +69,14 @@ namespace Baseball.Specs.Roster
         [Then(@"the following players are returned:")]
         public void ThenTheFollowingPlayersAreReturned(Table table)
         {
-            var players = PlayersHelper.CreateFrom(table);
+            var players = PlayerHelper.CreateFrom(table);
             CollectionAssert.AreEqual(players, _returnedPlayers);
         }
 
         [Then(@"the following player is returned:")]
         public void ThenTheFollowingPlayerIsReturned(Table table)
         {
-            var players = PlayersHelper.CreateFrom(table);
+            var players = PlayerHelper.CreateFrom(table);
             Assert.AreEqual(players.First(), _player);
         }
 

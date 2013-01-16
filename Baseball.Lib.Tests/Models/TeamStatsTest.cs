@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Baseball.Lib.Models;
+using Baseball.Lib.Utils;
 using NUnit.Framework;
 
 namespace Baseball.Lib.Tests.Models
@@ -51,7 +52,7 @@ namespace Baseball.Lib.Tests.Models
             Assert.AreEqual(0, teamStats.TotalWalks);
             Assert.AreEqual(0, teamStats.TotalStrikeOuts);
             Assert.AreEqual(0, teamStats.TotalAverage);
-            Assert.AreEqual(0, teamStats.TotalOnBasePercantage);
+            Assert.AreEqual(0, teamStats.TotalOnBasePercentage);
         }
 
         [Test]
@@ -75,11 +76,11 @@ namespace Baseball.Lib.Tests.Models
             Assert.AreEqual(0, teamStats.TotalWalks);
             Assert.AreEqual(0, teamStats.TotalStrikeOuts);
             Assert.AreEqual(0, teamStats.TotalAverage);
-            Assert.AreEqual(0, teamStats.TotalOnBasePercantage);
+            Assert.AreEqual(0, teamStats.TotalOnBasePercentage);
         }
 
         [Test]
-        public void HavePlayerStatsAndAverageAndOnBasePercentageAreCalculated()
+        public void StatsTotalsAndAverageAndOnBasePercentageAreCalculated()
         {
             CreatePlayerStats(atBats: 4, hits: 1, walks: 0);
             CreatePlayerStats(atBats: 4, hits: 3, walks: 0);
@@ -96,8 +97,8 @@ namespace Baseball.Lib.Tests.Models
             Assert.AreEqual(11, teamStats.TotalAtBats);
             Assert.AreEqual(4, teamStats.TotalHits);
             Assert.AreEqual(1, teamStats.TotalWalks);
-            Assert.AreEqual(4 / (decimal) 11, teamStats.TotalAverage);
-            Assert.AreEqual(5 / (decimal) 11, teamStats.TotalOnBasePercantage);
+            Assert.AreEqual(PercentHelper.CalculateAverage(11, 4), teamStats.TotalAverage);
+            Assert.AreEqual(PercentHelper.CalculateOnBasePercentage(11, 4, 1), teamStats.TotalOnBasePercentage);
         }
 
         void CreatePlayerStats(int atBats, int hits, int walks)

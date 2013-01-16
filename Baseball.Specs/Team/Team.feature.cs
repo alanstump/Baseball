@@ -66,10 +66,10 @@ namespace Baseball.Specs.Team
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get Current/Latest Team Totals")]
-        public virtual void GetCurrentLatestTeamTotals()
+        [NUnit.Framework.DescriptionAttribute("Get current team totals when no players or seasons created")]
+        public virtual void GetCurrentTeamTotalsWhenNoPlayersOrSeasonsCreated()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Current/Latest Team Totals", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get current team totals when no players or seasons created", ((string[])(null)));
 #line 5
 this.ScenarioSetup(scenarioInfo);
 #line 6
@@ -95,11 +95,355 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get current team totals when no players exist but season does")]
+        public virtual void GetCurrentTeamTotalsWhenNoPlayersExistButSeasonDoes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get current team totals when no players exist but season does", ((string[])(null)));
+#line 16
+this.ScenarioSetup(scenarioInfo);
+#line 17
+    testRunner.Given("there are no players on the team", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Year",
+                        "Wins",
+                        "Losses",
+                        "Current Season"});
+            table1.AddRow(new string[] {
+                        "2012",
+                        "20",
+                        "5",
+                        "False"});
+            table1.AddRow(new string[] {
+                        "2013",
+                        "0",
+                        "0",
+                        "True"});
+#line 18
+    testRunner.And("the team has the following seasons:", ((string)(null)), table1, "And ");
+#line 22
+    testRunner.When("I get the teams current season totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+    testRunner.Then("the year is 2013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 24
+    testRunner.And("the team has 0 wins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 25
+    testRunner.And("the team has 0 losses", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+    testRunner.And("the team has the seasons 2012,2013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+    testRunner.And("the team does not have any player stats", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+    testRunner.And("the team batting totals are all zero", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get current team totals when player stats don\'t exist for current season")]
+        public virtual void GetCurrentTeamTotalsWhenPlayerStatsDonTExistForCurrentSeason()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get current team totals when player stats don\'t exist for current season", ((string[])(null)));
+#line 30
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Last Name",
+                        "Year",
+                        "ABs",
+                        "Hits"});
+            table2.AddRow(new string[] {
+                        "Cutler",
+                        "2012",
+                        "25",
+                        "5"});
+            table2.AddRow(new string[] {
+                        "Forte",
+                        "2013",
+                        "0",
+                        "0"});
+#line 31
+    testRunner.Given("the team has the following player stat records:", ((string)(null)), table2, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Year",
+                        "Wins",
+                        "Losses",
+                        "Current Season"});
+            table3.AddRow(new string[] {
+                        "2012",
+                        "20",
+                        "5",
+                        "False"});
+            table3.AddRow(new string[] {
+                        "2013",
+                        "0",
+                        "0",
+                        "True"});
+#line 35
+    testRunner.And("the team has the following seasons:", ((string)(null)), table3, "And ");
+#line 39
+    testRunner.When("I get the teams current season totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 40
+    testRunner.Then("the year is 2013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+    testRunner.And("the team has 0 wins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+    testRunner.And("the team has 0 losses", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+    testRunner.And("the team has the seasons 2012,2013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Last Name",
+                        "Year",
+                        "ABs",
+                        "Hits",
+                        "Average",
+                        "On Base Percentage"});
+            table4.AddRow(new string[] {
+                        "Forte",
+                        "2013",
+                        "0",
+                        "0",
+                        ".000",
+                        ".000"});
+#line 44
+    testRunner.And("the team has the following player stats:", ((string)(null)), table4, "And ");
+#line 47
+    testRunner.And("the team batting totals are all zero", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Current team totals calculated correctly for current season")]
+        public virtual void CurrentTeamTotalsCalculatedCorrectlyForCurrentSeason()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Current team totals calculated correctly for current season", ((string[])(null)));
+#line 49
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Last Name",
+                        "Year",
+                        "ABs",
+                        "Hits",
+                        "Doubles",
+                        "Triples",
+                        "Home Runs",
+                        "RBIs",
+                        "Walks",
+                        "Runs",
+                        "Strike Outs"});
+            table5.AddRow(new string[] {
+                        "Joe",
+                        "2013",
+                        "25",
+                        "15",
+                        "3",
+                        "1",
+                        "3",
+                        "20",
+                        "0",
+                        "11",
+                        "0"});
+            table5.AddRow(new string[] {
+                        "John",
+                        "2013",
+                        "25",
+                        "10",
+                        "2",
+                        "0",
+                        "0",
+                        "5",
+                        "0",
+                        "7",
+                        "0"});
+            table5.AddRow(new string[] {
+                        "Jay",
+                        "2013",
+                        "22",
+                        "18",
+                        "5",
+                        "0",
+                        "2",
+                        "14",
+                        "3",
+                        "15",
+                        "0"});
+            table5.AddRow(new string[] {
+                        "Jared",
+                        "2013",
+                        "25",
+                        "5",
+                        "1",
+                        "0",
+                        "0",
+                        "2",
+                        "0",
+                        "4",
+                        "3"});
+            table5.AddRow(new string[] {
+                        "Jacob",
+                        "2013",
+                        "24",
+                        "12",
+                        "2",
+                        "0",
+                        "1",
+                        "10",
+                        "1",
+                        "9",
+                        "0"});
+#line 50
+    testRunner.Given("the team has the following player stat records:", ((string)(null)), table5, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Year",
+                        "Wins",
+                        "Losses",
+                        "Current Season"});
+            table6.AddRow(new string[] {
+                        "2013",
+                        "12",
+                        "4",
+                        "True"});
+#line 57
+    testRunner.And("the team has the following seasons:", ((string)(null)), table6, "And ");
+#line 60
+    testRunner.When("I get the teams current season totals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+    testRunner.Then("the year is 2013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 62
+    testRunner.And("the team has 12 wins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
+    testRunner.And("the team has 4 losses", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 64
+    testRunner.And("the team has the seasons 2013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Last Name",
+                        "Year",
+                        "ABs",
+                        "Hits",
+                        "Doubles",
+                        "Triples",
+                        "Home Runs",
+                        "RBIs",
+                        "Walks",
+                        "Runs",
+                        "Strike Outs",
+                        "Average",
+                        "On Base Percentage"});
+            table7.AddRow(new string[] {
+                        "Joe",
+                        "2013",
+                        "25",
+                        "15",
+                        "3",
+                        "1",
+                        "3",
+                        "20",
+                        "0",
+                        "11",
+                        "0",
+                        ".600",
+                        ".600"});
+            table7.AddRow(new string[] {
+                        "John",
+                        "2013",
+                        "25",
+                        "10",
+                        "2",
+                        "0",
+                        "0",
+                        "5",
+                        "0",
+                        "7",
+                        "0",
+                        ".400",
+                        ".400"});
+            table7.AddRow(new string[] {
+                        "Jay",
+                        "2013",
+                        "22",
+                        "18",
+                        "5",
+                        "0",
+                        "2",
+                        "14",
+                        "3",
+                        "15",
+                        "0",
+                        ".720",
+                        ".840"});
+            table7.AddRow(new string[] {
+                        "Jared",
+                        "2013",
+                        "25",
+                        "5",
+                        "1",
+                        "0",
+                        "0",
+                        "2",
+                        "0",
+                        "4",
+                        "3",
+                        ".200",
+                        ".200"});
+            table7.AddRow(new string[] {
+                        "Jacob",
+                        "2013",
+                        "24",
+                        "12",
+                        "2",
+                        "0",
+                        "1",
+                        "10",
+                        "1",
+                        "9",
+                        "0",
+                        ".500",
+                        ".640"});
+#line 65
+    testRunner.And("the team has the following player stats:", ((string)(null)), table7, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ABs",
+                        "Hits",
+                        "Doubles",
+                        "Triples",
+                        "Home Runs",
+                        "RBIs",
+                        "Walks",
+                        "Runs",
+                        "Strike Outs",
+                        "Average",
+                        "On Base Percentage"});
+            table8.AddRow(new string[] {
+                        "121",
+                        "60",
+                        "13",
+                        "1",
+                        "6",
+                        "51",
+                        "4",
+                        "46",
+                        "3",
+                        ".496",
+                        ".512"});
+#line 72
+    testRunner.And("the team batting totals are the following:", ((string)(null)), table8, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get Team Totals by Year")]
         public virtual void GetTeamTotalsByYear()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Team Totals by Year", ((string[])(null)));
-#line 17
+#line 76
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
@@ -110,7 +454,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void IndividualStatsLeadersForSeasonHitsHRRBIAVG()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Individual Stats Leaders for Season (Hits, HR, RBI, AVG, ???)", ((string[])(null)));
-#line 19
+#line 78
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();

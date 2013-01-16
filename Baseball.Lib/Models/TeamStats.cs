@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Baseball.Lib.Utils;
 
 namespace Baseball.Lib.Models
 {
@@ -19,8 +20,16 @@ namespace Baseball.Lib.Models
         public int TotalRunsBattedIn { get; private set; }
         public int TotalWalks { get; private set; }
         public int TotalStrikeOuts { get; private set; }
-        public decimal TotalAverage { get; private set; }
-        public decimal TotalOnBasePercantage { get; private set; }
+        
+        public double TotalAverage
+        {
+            get { return PercentHelper.CalculateAverage(TotalAtBats, TotalHits); }
+        }
+
+        public double TotalOnBasePercentage
+        {
+            get { return PercentHelper.CalculateOnBasePercentage(TotalAtBats, TotalHits, TotalWalks); }
+        }
 
         public TeamStats()
         {
@@ -38,9 +47,6 @@ namespace Baseball.Lib.Models
             PlayerYearStats = playerYearStats;
 
             AddTotals();
-
-            TotalAverage = CalculateTotalAverage();
-            TotalOnBasePercantage = CalculateTotalOnBasePercantage();
         }
 
         void AddTotals()
@@ -53,26 +59,10 @@ namespace Baseball.Lib.Models
                 TotalDoubles += pys.Doubles;
                 TotalTriples += pys.Triples;
                 TotalHomeRuns += pys.HomeRuns;
-                TotalRunsBattedIn = pys.RunsBattedIn;
+                TotalRunsBattedIn += pys.RunsBattedIn;
                 TotalWalks += pys.Walks;
                 TotalStrikeOuts += pys.StrikeOuts;
             }
-        }
-
-        decimal CalculateTotalAverage()
-        {
-            if (TotalAtBats < 1)
-                return 0;
-
-            return TotalHits / (decimal) TotalAtBats;
-        }
-
-        decimal CalculateTotalOnBasePercantage()
-        {
-            if (TotalAtBats < 1)
-                return 0;
-
-            return (TotalHits + TotalWalks) / (decimal) TotalAtBats;
         }
     }
 }

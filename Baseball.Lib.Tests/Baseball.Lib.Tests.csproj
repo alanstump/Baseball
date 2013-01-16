@@ -51,6 +51,7 @@
     <Compile Include="Managers\TeamManagerTest.cs" />
     <Compile Include="Models\TeamStatsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\PercentHelperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

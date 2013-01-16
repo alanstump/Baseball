@@ -1,6 +1,6 @@
 ﻿using Baseball.Lib.Repositories;
+using Baseball.Specs.Helpers;
 using Baseball.Specs.Repositories;
-using Baseball.Specs.Roster;
 using IocContainer;
 using TechTalk.SpecFlow;
 
@@ -17,7 +17,7 @@ namespace Baseball.Specs.CommonStepDefinitions
         [Given(@"the team has the following players:")]
         public void GivenTheTeamHasTheFollowingPlayers(Table table)
         {
-            var players = PlayersHelper.CreateFrom(table);
+            var players = PlayerHelper.CreateFrom(table);
             var playersRepositoryStub = Ioc.Get<IPlayersRepository>() as PlayersRepositoryStub;
             playersRepositoryStub.Players.AddRange(players);
         }

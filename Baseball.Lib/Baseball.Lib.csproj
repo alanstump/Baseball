@@ -50,6 +50,7 @@
     <Compile Include="Repositories\IPlayersRepository.cs" />
     <Compile Include="Repositories\IPlayerYearStatsRepository.cs" />
     <Compile Include="Repositories\ITeamRepository.cs" />
+    <Compile Include="Utils\PercentHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IocContainer\IocContainer\IocContainer.csproj">

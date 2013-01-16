@@ -56,11 +56,13 @@
   <ItemGroup>
     <Compile Include="BaseballSpecsIocConfigurer.cs" />
     <Compile Include="CommonStepDefinitions\GivenSteps.cs" />
+    <Compile Include="Helpers\PlayerYearStatsHelper.cs" />
+    <Compile Include="Helpers\TeamHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\PlayersRepositoryStub.cs" />
     <Compile Include="Repositories\PlayerYearStatsRepositoryStub.cs" />
     <Compile Include="Repositories\TeamRepositoryStub.cs" />
-    <Compile Include="Roster\PlayersHelper.cs" />
+    <Compile Include="Helpers\PlayerHelper.cs" />
     <Compile Include="Roster\RosterSteps.cs" />
     <Compile Include="Roster\Roster.feature.cs">
       <AutoGen>True</AutoGen>

@@ -119,9 +119,7 @@ namespace Baseball.Lib.Tests.Managers
 
         void AddPlayerYearStatsRecordForYear(int year)
         {
-            var count = _playerYearStats.Count;
-
-            _playerYearStats.Add(new PlayerYearStats { PlayerId = ++count, Year = year });
+            _playerYearStats.Add(new PlayerYearStats { Player = new Player(), Year = year });
         }
 
         static void AssertEmptyTeamStats(TeamStats teamStats)
@@ -145,7 +143,7 @@ namespace Baseball.Lib.Tests.Managers
             Assert.AreEqual(0, teamStats.TotalWalks);
             Assert.AreEqual(0, teamStats.TotalStrikeOuts);
             Assert.AreEqual(0, teamStats.TotalAverage);
-            Assert.AreEqual(0, teamStats.TotalOnBasePercantage);
+            Assert.AreEqual(0, teamStats.TotalOnBasePercentage);
         }
     }
 }
