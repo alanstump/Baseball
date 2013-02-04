@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Baseball.Specs.Team
+namespace Baseball.Specs.TeamStats
 {
     using TechTalk.SpecFlow;
     
@@ -25,7 +25,7 @@ namespace Baseball.Specs.Team
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "Team.feature"
+#line 1 "TeamStats.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
@@ -439,12 +439,201 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get Team Totals by Year")]
-        public virtual void GetTeamTotalsByYear()
+        [NUnit.Framework.DescriptionAttribute("Get specific season stats")]
+        public virtual void GetSpecificSeasonStats()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Team Totals by Year", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get specific season stats", ((string[])(null)));
 #line 76
 this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Last Name",
+                        "Year",
+                        "ABs",
+                        "Hits",
+                        "Doubles",
+                        "Triples",
+                        "Home Runs",
+                        "RBIs",
+                        "Walks",
+                        "Runs",
+                        "Strike Outs"});
+            table9.AddRow(new string[] {
+                        "Joe",
+                        "2012",
+                        "25",
+                        "15",
+                        "3",
+                        "1",
+                        "3",
+                        "20",
+                        "0",
+                        "11",
+                        "0"});
+            table9.AddRow(new string[] {
+                        "John",
+                        "2012",
+                        "25",
+                        "10",
+                        "2",
+                        "0",
+                        "0",
+                        "5",
+                        "0",
+                        "7",
+                        "0"});
+            table9.AddRow(new string[] {
+                        "Jay",
+                        "2012",
+                        "22",
+                        "18",
+                        "5",
+                        "0",
+                        "2",
+                        "14",
+                        "3",
+                        "15",
+                        "0"});
+            table9.AddRow(new string[] {
+                        "Jared",
+                        "2013",
+                        "25",
+                        "5",
+                        "1",
+                        "0",
+                        "0",
+                        "2",
+                        "0",
+                        "4",
+                        "3"});
+            table9.AddRow(new string[] {
+                        "Jacob",
+                        "2013",
+                        "24",
+                        "12",
+                        "2",
+                        "0",
+                        "1",
+                        "10",
+                        "1",
+                        "9",
+                        "0"});
+#line 77
+    testRunner.Given("the team has the following player stat records:", ((string)(null)), table9, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Year",
+                        "Wins",
+                        "Losses",
+                        "Current Season"});
+            table10.AddRow(new string[] {
+                        "2012",
+                        "20",
+                        "5",
+                        "False"});
+            table10.AddRow(new string[] {
+                        "2013",
+                        "3",
+                        "22",
+                        "True"});
+#line 84
+    testRunner.And("the team has the following seasons:", ((string)(null)), table10, "And ");
+#line 88
+    testRunner.When("I get the teams season totals for 2012", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 89
+    testRunner.Then("the year is 2012", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 90
+    testRunner.And("the team has 20 wins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 91
+    testRunner.And("the team has 5 losses", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 92
+    testRunner.And("the team has the seasons 2012,2013", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Last Name",
+                        "Year",
+                        "ABs",
+                        "Hits",
+                        "Doubles",
+                        "Triples",
+                        "Home Runs",
+                        "RBIs",
+                        "Walks",
+                        "Runs",
+                        "Strike Outs",
+                        "Average",
+                        "On Base Percentage"});
+            table11.AddRow(new string[] {
+                        "Joe",
+                        "2012",
+                        "25",
+                        "15",
+                        "3",
+                        "1",
+                        "3",
+                        "20",
+                        "0",
+                        "11",
+                        "0",
+                        ".600",
+                        ".600"});
+            table11.AddRow(new string[] {
+                        "John",
+                        "2012",
+                        "25",
+                        "10",
+                        "2",
+                        "0",
+                        "0",
+                        "5",
+                        "0",
+                        "7",
+                        "0",
+                        ".400",
+                        ".400"});
+            table11.AddRow(new string[] {
+                        "Jay",
+                        "2012",
+                        "22",
+                        "18",
+                        "5",
+                        "0",
+                        "2",
+                        "14",
+                        "3",
+                        "15",
+                        "0",
+                        ".720",
+                        ".840"});
+#line 93
+    testRunner.And("the team has the following player stats:", ((string)(null)), table11, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ABs",
+                        "Hits",
+                        "Doubles",
+                        "Triples",
+                        "Home Runs",
+                        "RBIs",
+                        "Walks",
+                        "Runs",
+                        "Strike Outs",
+                        "Average",
+                        "On Base Percentage"});
+            table12.AddRow(new string[] {
+                        "72",
+                        "43",
+                        "10",
+                        "1",
+                        "5",
+                        "39",
+                        "3",
+                        "33",
+                        "0",
+                        ".597",
+                        ".613"});
+#line 98
+    testRunner.And("the team batting totals are the following:", ((string)(null)), table12, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -454,7 +643,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void IndividualStatsLeadersForSeasonHitsHRRBIAVG()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Individual Stats Leaders for Season (Hits, HR, RBI, AVG, ???)", ((string[])(null)));
-#line 78
+#line 102
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();

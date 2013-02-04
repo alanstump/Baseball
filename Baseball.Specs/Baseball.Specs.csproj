@@ -69,12 +69,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Roster.feature</DependentUpon>
     </Compile>
-    <Compile Include="Team\Team.feature.cs">
+    <Compile Include="TeamStats\TeamStats.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Team.feature</DependentUpon>
+      <DependentUpon>TeamStats.feature</DependentUpon>
     </Compile>
-    <Compile Include="Team\TeamSteps.cs" />
+    <Compile Include="TeamStats\TeamStatsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -85,9 +85,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Roster.feature.cs</LastGenOutput>
     </None>
-    <None Include="Team\Team.feature">
+    <None Include="TeamStats\TeamStats.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Team.feature.cs</LastGenOutput>
+      <LastGenOutput>TeamStats.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -105,6 +105,40 @@ namespace Baseball.Lib.Tests.Managers
             _teamRepository.Verify(x => x.GetAll());
             _playerYearStatsRepository.Verify(x => x.GetAllForYear(2014));
         }
+        
+        [Test]
+        public void MultipleTeamRecordsExistsReturnsTeamStatsForGivenSeason()
+        {
+            AddTeamRecord(2013, true);
+            AddTeamRecord(2012, false);
+            AddTeamRecord(2011, false);
+            _teamRepository.Setup(x => x.GetAll()).Returns(_teams);
+
+            AddPlayerYearStatsRecordForYear(2012);
+            _playerYearStatsRepository.Setup(x => x.GetAllForYear(2012)).Returns(_playerYearStats);
+
+            var teamStats = _teamManager.GetSeasonStatsFor(2012);
+
+            Assert.AreEqual(2012, teamStats.Year);
+            CollectionAssert.AreEqual(new List<int> { 2011, 2012, 2013 }, teamStats.Seasons);
+            CollectionAssert.AreEqual(_playerYearStats, teamStats.PlayerYearStats);
+
+            _teamRepository.Verify(x => x.GetAll());
+            _playerYearStatsRepository.Verify(x => x.GetAllForYear(2012));
+        }
+
+        [Test]
+        public void TeamRecordForGivenSeasonDoesNotExistReturnsEmptyTeamStats()
+        {
+            AddTeamRecord(2012, false);
+            _teamRepository.Setup(x => x.GetAll()).Returns(_teams);
+
+            var teamStats = _teamManager.GetSeasonStatsFor(2013);
+
+            AssertEmptyTeamStats(teamStats);
+            _teamRepository.Verify(x => x.GetAll());
+            _playerYearStatsRepository.Verify(x => x.GetAllForYear(It.IsAny<int>()), Times.Never());
+        }
 
         void AddTeamRecord(int year, bool currentSeason)
         {

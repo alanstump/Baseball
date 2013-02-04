@@ -1,13 +1,13 @@
 ﻿@model Baseball.Lib.Models.Player
 
-@{
-    ViewBag.Title = "Details";
-}
+@{ var playerName = Model.FirstName + " " + Model.LastName; }
 
-<h2>Details</h2>
+@{ ViewBag.Title = playerName; }
+
+<h2>@(playerName)</h2>
 
 <fieldset>
-    <legend>Player</legend>
+    <legend>@(playerName)</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FirstName)
@@ -31,5 +31,5 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Roster", "Index")
 </p>

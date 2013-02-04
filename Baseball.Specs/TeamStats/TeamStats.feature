@@ -73,6 +73,30 @@ Scenario: Current team totals calculated correctly for current season
     | ABs | Hits | Doubles | Triples | Home Runs | RBIs | Walks | Runs | Strike Outs | Average | On Base Percentage |
     | 121 | 60   | 13      | 1       | 6         | 51   | 4     | 46   | 3           | .496    | .512               |
 
-Scenario: Get Team Totals by Year
+Scenario: Get specific season stats
+    Given the team has the following player stat records:
+    | Last Name | Year | ABs | Hits | Doubles | Triples | Home Runs | RBIs | Walks | Runs | Strike Outs |
+    | Joe       | 2012 | 25  | 15   | 3       | 1       | 3         | 20   | 0     | 11   | 0           |
+    | John      | 2012 | 25  | 10   | 2       | 0       | 0         | 5    | 0     | 7    | 0           |
+    | Jay       | 2012 | 22  | 18   | 5       | 0       | 2         | 14   | 3     | 15   | 0           |
+    | Jared     | 2013 | 25  | 5    | 1       | 0       | 0         | 2    | 0     | 4    | 3           |
+    | Jacob     | 2013 | 24  | 12   | 2       | 0       | 1         | 10   | 1     | 9    | 0           |
+    And the team has the following seasons:
+    | Year | Wins | Losses | Current Season |
+    | 2012 | 20   | 5      | False          |
+    | 2013 | 3    | 22     | True           |
+    When I get the teams season totals for 2012
+    Then the year is 2012
+    And the team has 20 wins
+    And the team has 5 losses
+    And the team has the seasons 2012,2013
+    And the team has the following player stats:
+    | Last Name | Year | ABs | Hits | Doubles | Triples | Home Runs | RBIs | Walks | Runs | Strike Outs | Average | On Base Percentage |
+    | Joe       | 2012 | 25  | 15   | 3       | 1       | 3         | 20   | 0     | 11   | 0           | .600    | .600               |
+    | John      | 2012 | 25  | 10   | 2       | 0       | 0         | 5    | 0     | 7    | 0           | .400    | .400               |
+    | Jay       | 2012 | 22  | 18   | 5       | 0       | 2         | 14   | 3     | 15   | 0           | .720    | .840               |
+    And the team batting totals are the following:
+    | ABs | Hits | Doubles | Triples | Home Runs | RBIs | Walks | Runs | Strike Outs | Average | On Base Percentage |
+    | 72  | 43   | 10      | 1       | 5         | 39   | 3     | 33   | 0           | .597    | .613               |
 
 Scenario: Individual Stats Leaders for Season (Hits, HR, RBI, AVG, ???)

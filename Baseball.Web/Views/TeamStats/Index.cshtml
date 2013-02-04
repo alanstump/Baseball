@@ -1,0 +1,66 @@
+﻿@model Baseball.Lib.Models.TeamStats
+
+@{var title = string.Format("{0} Season ({1}-{2})", Model.Year, Model.Wins, Model.Losses);}
+
+@{ ViewBag.Title = title; }
+
+<h2>@(title)</h2>
+
+Season: 
+@using (Html.BeginForm("Index", "TeamStats"))
+{
+    @Html.DropDownList("season", new SelectList(Model.Seasons, Model.Year), new {@onchange = "submit();"})
+}
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>GP</th>
+        <th>AB</th>
+        <th>R</th>
+        <th>H</th>
+        <th>2B</th>
+        <th>3B</th>
+        <th>HR</th>
+        <th>RBI</th>
+        <th>W</th>
+        <th>SO</th>
+        <th>BA</th>
+        <th>OBP</th>
+    </tr>
+
+@foreach (var item in Model.PlayerYearStats) {
+    <tr>
+        <th>@Html.ActionLink(item.Player.FirstName + " " + item.Player.LastName, "Details", "Roster", new { id = item.Player.Id }, new {})</th>
+        <th>@Html.DisplayFor(modelItem => item.GamesPlayed)</th>
+        <th>@Html.DisplayFor(modelItem => item.AtBats)</th>
+        <th>@Html.DisplayFor(modelItem => item.Runs)</th>
+        <th>@Html.DisplayFor(modelItem => item.Hits)</th>
+        <th>@Html.DisplayFor(modelItem => item.Doubles)</th>
+        <th>@Html.DisplayFor(modelItem => item.Triples)</th>
+        <th>@Html.DisplayFor(modelItem => item.HomeRuns)</th>
+        <th>@Html.DisplayFor(modelItem => item.RunsBattedIn)</th>
+        <th>@Html.DisplayFor(modelItem => item.Walks)</th>
+        <th>@Html.DisplayFor(modelItem => item.StrikeOuts)</th>
+        <th>@Html.DisplayFor(modelItem => item.Average)</th>
+        <th>@Html.DisplayFor(modelItem => item.OnBasePercentage)</th>
+    </tr>
+}
+    
+    <tr>
+        <th>Totals</th>
+        <th>@(Model.Wins + Model.Losses)</th>
+        <th>@Html.DisplayFor(model => model.TotalAtBats)</th>
+        <th>@Html.DisplayFor(model => model.TotalRuns)</th>
+        <th>@Html.DisplayFor(model => model.TotalHits)</th>
+        <th>@Html.DisplayFor(model => model.TotalDoubles)</th>
+        <th>@Html.DisplayFor(model => model.TotalTriples)</th>
+        <th>@Html.DisplayFor(model => model.TotalHomeRuns)</th>
+        <th>@Html.DisplayFor(model => model.TotalRunsBattedIn)</th>
+        <th>@Html.DisplayFor(model => model.TotalWalks)</th>
+        <th>@Html.DisplayFor(model => model.TotalStrikeOuts)</th>
+        <th>@Html.DisplayFor(model => model.TotalAverage)</th>
+        <th>@Html.DisplayFor(model => model.TotalOnBasePercentage)</th>
+    </tr>
+
+</table>

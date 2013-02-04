@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Baseball.Lib.Models;
 using Baseball.Lib.Repositories;
 using Baseball.Specs.Helpers;
 using Baseball.Specs.Repositories;
@@ -11,14 +10,14 @@ using IocContainer;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
-namespace Baseball.Specs.Team
+namespace Baseball.Specs.TeamStats
 {
     [Binding]
-    public class TeamSteps
+    public class TeamStatsSteps
     {
-        TeamStats _teamStats;
+        Lib.Models.TeamStats _teamStats;
 
-        public TeamSteps()
+        public TeamStatsSteps()
         {
             BaseballSpecsIocConfigurer.Configure();
         }
@@ -58,12 +57,13 @@ namespace Baseball.Specs.Team
         [When(@"I get the teams current season totals")]
         public void WhenIGetTheTeamsCurrentSeasonTotals()
         {
-            var result = Ioc.Get<TeamController>().Index() as ViewResult;
+            GetSeasonStats();
+        }
 
-            if (result == null)
-                throw new Exception("Unable to get team stats.");
-
-            _teamStats = result.Model as TeamStats;
+        [When(@"I get the teams season totals for (\d+)")]
+        public void WhenIGetTheTeamsSeasonTotalsFor(int season)
+        {
+            GetSeasonStats(season);
         }
 
         [Then(@"the year is (.*)")]
@@ -173,6 +173,16 @@ namespace Baseball.Specs.Team
         static bool IsCurrentYear(string year)
         {
             return year.ToLower() == "currentyear";
+        }
+
+        void GetSeasonStats(int? season = null)
+        {
+            var result = Ioc.Get<TeamStatsController>().Index(season) as ViewResult;
+
+            if (result == null)
+                throw new Exception("Unable to get team stats.");
+
+            _teamStats = result.Model as Lib.Models.TeamStats;
         }
     }
 }

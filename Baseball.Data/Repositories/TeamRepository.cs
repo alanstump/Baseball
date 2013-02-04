@@ -10,7 +10,23 @@ namespace Baseball.Data.Repositories
 
         public TeamRepository()
         {
-            Teams = new List<Team>();    
+            Teams = new List<Team>
+            {
+                new Team
+                {
+                    Year = 2012,
+                    Wins = 23,
+                    Losses = 11,
+                    CurrentSeason = false
+                },
+                new Team
+                {
+                    Year = 2013,
+                    Wins = 5,
+                    Losses = 1,
+                    CurrentSeason = true
+                }
+            };
         }
 
         public IList<Team> GetAll()
