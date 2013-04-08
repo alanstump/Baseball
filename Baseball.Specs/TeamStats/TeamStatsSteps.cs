@@ -124,40 +124,7 @@ namespace Baseball.Specs.TeamStats
         [Then(@"the team batting totals are the following:")]
         public void ThenTheTeamBattingTotalsAreTheFollowing(Table table)
         {
-            var row = table.Rows[0];
-
-            if (row.ContainsKey("ABs"))
-                Assert.AreEqual(int.Parse(row["ABs"]), _teamStats.TotalAtBats);
-
-            if (row.ContainsKey("Runs"))
-                Assert.AreEqual(int.Parse(row["Runs"]), _teamStats.TotalRuns);
-
-            if (row.ContainsKey("Hits"))
-                Assert.AreEqual(int.Parse(row["Hits"]), _teamStats.TotalHits);
-
-            if (row.ContainsKey("Doubles"))
-                Assert.AreEqual(int.Parse(row["Doubles"]), _teamStats.TotalDoubles);
-
-            if (row.ContainsKey("Triples"))
-                Assert.AreEqual(int.Parse(row["Triples"]), _teamStats.TotalTriples);
-
-            if (row.ContainsKey("HomeRuns"))
-                Assert.AreEqual(int.Parse(row["HomeRuns"]), _teamStats.TotalHomeRuns);
-
-            if (row.ContainsKey("RBIs"))
-                Assert.AreEqual(int.Parse(row["RBIs"]), _teamStats.TotalRunsBattedIn);
-
-            if (row.ContainsKey("Walks"))
-                Assert.AreEqual(int.Parse(row["Walks"]), _teamStats.TotalWalks);
-
-            if (row.ContainsKey("StrikeOuts"))
-                Assert.AreEqual(int.Parse(row["StrikeOuts"]), _teamStats.TotalStrikeOuts);
-
-            if (row.ContainsKey("Average"))
-                Assert.AreEqual(double.Parse(row["Average"]), _teamStats.TotalAverage);
-
-            if (row.ContainsKey("OnBasePercentage"))
-                Assert.AreEqual(double.Parse(row["OnBasePercentage"]), _teamStats.TotalOnBasePercentage);
+            TeamStatsHelper.Compare(table, _teamStats);
         }
 
         static IEnumerable<int> GetSeasonsFrom(string years)
