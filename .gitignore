@@ -56,3 +56,7 @@ packages/
 *.vspscc
 .builds
 *.dotCover
+
+# NUnit Runner Files
+*VisualState.xml
+TestResult.xml

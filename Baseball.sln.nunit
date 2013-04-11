@@ -1,0 +1,11 @@
+﻿<NUnitProject>
+  <Settings activeconfig="Debug" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="Baseball.Data.Tests\bin\Debug\Baseball.Data.Tests.dll" />
+    <assembly path="Baseball.Lib.Tests\bin\Debug\Baseball.Lib.Tests.dll" />
+    <assembly path="Baseball.Specs\bin\Debug\Baseball.Specs.dll" />
+    <assembly path="Baseball.Web.Tests\bin\Debug\Baseball.Web.Tests.dll" />
+    <assembly path="IocContainer\IocContainer.Tests\bin\Debug\IocContainer.Tests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto" />
+</NUnitProject>
